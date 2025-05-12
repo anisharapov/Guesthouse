@@ -51,18 +51,36 @@
             <h2 id="payment-heading">Finalize Payment</h2>
             <section class="reservation-summary" aria-labelledby="summary-heading">
                 <h3 id="summary-heading">Reservation Summary</h3>
+                <div id="summary-content"></div>
             </section>
             <form id="payment-form" aria-describedby="payment-instructions">
+                <p id="payment-instructions" class="visually-hidden">Please fill in your payment details to complete the reservation.</p>
                 <section class="form-group">
                     <label for="cardholder-name">Cardholder Name*</label>
-                    <input type="text" id="cardholder-name" name="cardholder-name" required aria-required="true">
+                    <input type="text" id="cardholder-name" name="cardholder-name" required aria-required="true" pattern="[A-Za-zÀ-ÿ\s'-]{2,}" aria-describedby="cardholder-name-error">
+                    <span id="cardholder-name-error" class="error-message" aria-live="polite"></span>
                 </section>
                 <section class="form-group">
-                    <label for="card-element">Card Details*</label>
-                    <div id="card-element" role="region" aria-label="Card information input"></div>
-                    <span id="card-errors" class="error-message" aria-live="polite"></span>
+                    <label for="card-number">Card Number*</label>
+                    <div class="card-number-container">
+                        <input type="text" id="card-number" name="card-number" maxlength="19" required aria-required="true" placeholder="1234 5678 9012 3456" aria-describedby="card-number-error card-type">
+                        <span id="card-type" class="card-type" aria-live="polite"></span>
+                    </div>
+                    <span id="card-number-error" class="error-message" aria-live="polite"></span>
                 </section>
-                <button type="submit" id="payButton" class="book-button">Pay</button>
+                <div class="form-group card-expiry-cvc-container">
+                    <section class="form-group">
+                        <label for="card-expiry">Expiration Date* (MM/YY)</label>
+                        <input type="text" id="card-expiry" name="card-expiry" maxlength="5" required aria-required="true" placeholder="MM/YY" pattern="^(0[1-9]|1[0-2])/[0-9]{2}$" aria-describedby="card-expiry-error">
+                        <span id="card-expiry-error" class="error-message" aria-live="polite"></span>
+                    </section>
+                    <section class="form-group">
+                        <label for="card-cvc">CVC* (3 digits)</label>
+                        <input type="text" id="card-cvc" name="card-cvc" maxlength="3" required aria-required="true" placeholder="123" pattern="\d{3}" aria-describedby="card-cvc-error">
+                        <span id="card-cvc-error" class="error-message" aria-live="polite"></span>
+                    </section>
+                </div>
+                <button type="submit" id="payButton" class="book-button" disabled>Pay</button>
             </form>
         </section>
     </main>

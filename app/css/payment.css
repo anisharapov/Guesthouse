@@ -1,138 +1,101 @@
-/* Section de paiement */
-.payment-section {
-    margin: 20px;
-    padding: 20px;
-    background-color: var(--white);
-    border: 3px solid var(--main);
-    border-radius: 10px;
-    font-family: var(--font-family);
+/* Conteneur pour le numéro de carte et le type */
+.card-number-container {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
-.payment-section h2 {
-    font-size: var(--font-size-xxxlarge);
+.card-number-container input {
+    padding-right: 60px; /* Espace pour l'icône/type */
+}
+
+/* Style pour le type de carte */
+.card-type {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--font-size-small);
     color: var(--main);
-    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-.reservation-summary {
-    margin-bottom: 20px;
+/* Classes pour les types de carte avec icônes */
+.card-type.visa::before,
+.card-type.mastercard::before,
+.card-type.amex::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-.reservation-summary h3 {
-    font-size: var(--font-size-xlarge);
-    color: var(--main);
-    margin-bottom: 10px;
+.card-type.visa::before {
+    background-image: url('img/visa.svg'); /* Remplacer par le chemin de ton icône Visa */
 }
 
-/* Formulaire de paiement */
-#payment-form {
-    max-width: 500px;
-    margin: 0 auto;
+.card-type.mastercard::before {
+    background-image: url('img/mastercard.svg'); /* Remplacer par le chemin de ton icône Mastercard */
 }
 
-.form-group {
-    margin-bottom: 15px;
+.card-type.amex::before {
+    background-image: url('img/amex.svg'); /* Remplacer par le chemin de ton icône Amex */
 }
 
-.form-group label {
-    display: block;
-    font-size: var(--font-size-large);
-    color: var(--main);
-    margin-bottom: 5px;
+/* Styles pour les champs Expiration Date et CVC */
+.form-group input#card-expiry,
+.form-group input#card-cvc {
+    width: auto;
+    max-width: 80px;
+    min-width: 60px;
+    display: inline-block;
 }
 
-#card-element {
-    padding: 10px;
-    border: 2px solid var(--main);
-    border-radius: 5px;
-    background-color: var(--secondary);
+/* Conteneur pour aligner Expiration Date et CVC côte à côte */
+.card-expiry-cvc-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
+/* Ajustement pour mobile */
+@media screen and (max-width: 600px) {
+    .form-group input#card-expiry,
+    .form-group input#card-cvc {
+        max-width: 70px;
+        min-width: 50px;
+    }
+    .card-expiry-cvc-container {
+        gap: 10px;
+    }
+}
+
+
+/* Styles généraux pour les inputs */
 .form-group input {
     width: 100%;
     padding: 10px;
+    font-size: var(--font-size);
     border: 2px solid var(--main);
     border-radius: 5px;
     background-color: var(--secondary);
+    color: var(--main);
+    box-sizing: border-box;
 }
 
-/* Message d'erreur */
-.error-message {
-    color: red;
-    font-size: var(--font-size-small);
+/* Style pour les champs invalides */
+.form-group input:invalid {
+    border-color: #ff4d4d;
+}
+
+/* Style pour les messages d'erreur */
+.form-group .error-message {
+    color: var(--main);
+    font-size: var(--font-size-xsmall);
     margin-top: 5px;
     display: block;
-}
-
-/* Bouton Payer */
-.book-button {
-    background-color: var(--main);
-    color: var(--white);
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: var(--font-size-xxlarge);
-    font-family: var(--font-family);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    text-align: center;
-}
-
-.book-button:hover:not(:disabled) {
-    background-color: var(--beige-fonce);
-    color: var(--white);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
-}
-
-.book-button:disabled {
-    background-color: var(--secondary);
-    color: var(--quaternary);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-/* Modal (dialog) */
-dialog {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
-    width: 90%;
-    padding: 20px;
-}
-
-.modal-content {
-    text-align: center;
-}
-
-.modal-content h2 {
-    font-size: var(--font-size-xlarge);
-    color: var(--main);
-    margin-bottom: 10px;
-}
-
-.modal-content p {
-    font-size: var(--font-size-large);
-    margin-bottom: 20px;
-}
-
-.close {
-    background-color: var(--main);
-    color: var(--white);
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: var(--font-size-medium);
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.close:hover {
-    background-color: var(--beige-fonce);
 }

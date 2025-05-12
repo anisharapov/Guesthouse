@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
             payButton.disabled = false;
         }
     });
-
     // Fermer la modale
     confirmationModal.querySelector('.close').addEventListener('click', () => {
         confirmationModal.close();

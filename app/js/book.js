@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Variables pour le suivi de l'état
-    let currentDate = new Date(2025, 4, 11); // 11 mai 2025
+    let currentDate = new Date(); // Date actuelle (aujourd'hui)
     let currentMonth = currentDate.getMonth();
     let currentYear = currentDate.getFullYear();
     let startDate = null;
@@ -183,15 +183,17 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const firstDay = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const referenceDate = new Date(2025, 4, 11); // 11 mai 2025
-        const referenceDateOnly = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate());
+        const today = new Date(); // Date actuelle
+        const todayDateOnly = new Date(today.getFullYear(), today.getMonth(), today.getDate());
         
+        // Ajouter des jours vides avant le début du mois
         for (let i = 0; i < firstDay; i++) {
             const emptyDay = document.createElement('div');
             emptyDay.className = 'calendar-day disabled';
             calendarEl.appendChild(emptyDay);
         }
         
+        // Générer les jours du mois
         for (let day = 1; day <= daysInMonth; day++) {
             const dayEl = document.createElement('div');
             dayEl.className = 'calendar-day';
@@ -200,16 +202,19 @@ document.addEventListener('DOMContentLoaded', function() {
             dayEl.setAttribute('aria-label', `${day} ${monthNames[month]} ${year}`);
             
             const checkDate = new Date(year, month, day);
-            if (checkDate < referenceDateOnly) {
+            // Désactiver les dates antérieures à aujourd'hui
+            if (checkDate < todayDateOnly) {
                 dayEl.className = 'calendar-day disabled';
                 console.log(`Date ${day}/${month + 1}/${year} disabled`); // Débogage
             } else {
-                if (checkDate.getDate() === referenceDate.getDate() &&
-                    checkDate.getMonth() === referenceDate.getMonth() &&
-                    checkDate.getFullYear() === referenceDate.getFullYear()) {
+                // Marquer la date actuelle
+                if (checkDate.getDate() === today.getDate() &&
+                    checkDate.getMonth() === today.getMonth() &&
+                    checkDate.getFullYear() === today.getFullYear()) {
                     dayEl.classList.add('today');
                 }
                 
+                // Gérer les dates sélectionnées
                 if (startDate && endDate) {
                     if (isSameDate(checkDate, startDate)) {
                         dayEl.classList.add('selected', 'start-date');
@@ -222,6 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     dayEl.classList.add('selected', 'start-date');
                 }
                 
+                // Ajouter un gestionnaire d'événements pour la sélection
                 dayEl.addEventListener('click', function() {
                     handleDateSelection(new Date(year, month, day));
                 });

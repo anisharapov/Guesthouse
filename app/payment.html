@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="js/payment.js" defer></script>
+    <title>Paiement - Guesthouse Terrabella</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Guesthouse Terrabella</h1>
+        <h2>Welcome to Kyrgyzstan</h2>
+        <button class="burger" aria-label="Open menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <section class="header-controls">
+            <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+            <select id="languageSelect" aria-label="Select language" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="ru">Русский</option>
+            </select>
+        </section>
+        <nav id="menu" aria-label="Main menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="register.html">Create account</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact-form.php">Click to contact</a></li>
+                <li><a href="reset.html">Reset</a></li>
+            </ul>
+            <button class="hide-menu" onclick="toggleMenu()" aria-label="Close menu">Close 🅇</button>
+        </nav>
+        <section class="hero" aria-label="Main image">
+            <img class="image" src="img/map_converted.jpg" alt="Scenic view of Kyrgyzstan">
+        </section>
+    </header>
+
+    <main>
+        <section class="payment-section" aria-labelledby="payment-heading">
+            <h2 id="payment-heading">Finalize Payment</h2>
+            <section class="reservation-summary" aria-labelledby="summary-heading">
+                <h3 id="summary-heading">Reservation Summary</h3>
+            </section>
+            <form id="payment-form" aria-describedby="payment-instructions">
+                <section class="form-group">
+                    <label for="cardholder-name">Cardholder Name*</label>
+                    <input type="text" id="cardholder-name" name="cardholder-name" required aria-required="true">
+                </section>
+                <section class="form-group">
+                    <label for="card-element">Card Details*</label>
+                    <div id="card-element" role="region" aria-label="Card information input"></div>
+                    <span id="card-errors" class="error-message" aria-live="polite"></span>
+                </section>
+                <button type="submit" id="payButton" class="book-button">Pay</button>
+            </form>
+        </section>
+    </main>
+
+    <dialog id="confirmation" aria-labelledby="confirmation-heading">
+        <section class="modal-content">
+            <h2 id="confirmation-heading">Your reservation confirmed!</h2>
+            <p>Your reservation confirmed. You will receive it by e-mail.</p>
+            <button class="close" aria-label="Close the window">×</button>
+        </section>
+    </dialog>
+
+    <footer class="footer" aria-label="Footer">
+        <p>© 2023 Guesthouse Terrabella. All rights reserved.</p>
+        <p>For more information about our guesthouse and the services we offer, please visit our website or contact us directly.</p>
+        <p>Thank you for considering us for your stay in Kyrgyzstan. We hope to see you soon!</p>
+        <p>📧 <span class="span">Email:</span> <a href="mailto:terrabella@guesthouse.kg">terrabella@guesthouse.kg</a></p>
+        <p>📞 <span class="span">Phone:</span> <a class="phone-link" href="tel:+996774060992">+996 774 06 09 92</a></p>
+        <p>📱 <span class="span">WhatsApp:</span> <a class="phone-link" href="https://wa.me/+996774060992">+996 774 06 09 92</a></p>
+        <p>🌍 <span class="span">Address:</span> 15 minutes from Bishkek, Kyrgyzstan <span class="span">street:</span> Baichechkei 103, Arashan, <span class="span">district:</span> Alamedine, <span class="span">city:</span> Bishkek</p>
+    </footer>
+    <script>
+        function myFunction() {
+            const element = document.getElementById("menu");
+            if (element.classList.contains('visible')) {
+                element.classList.remove("visible")
+            } else {
+                element.classList.add("visible");
+            }
+        }
+    </script>
+</body>
+</html>

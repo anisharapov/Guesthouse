@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./Terrabella/css/reset.css">
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <h1>Guesthouse Terrabella</h1>
+        <h2>Welcome to Kyrgyzstan</h2>
+        <button class="burger" onclick="myFunction()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="menu">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <!--Button burger-->
+            <div class="hide-menu">
+                <button onclick="myFunction()">Close 🅇</button>
+            </div>
+        </nav>
+        <article class="hero">
+            <img class="image" src="./img/loop Kyrgyzstan2_converted.jpg" alt="helmet">
+            <h3>Experience the beauty of Kyrgyzstan</h3>
+            <p>Join us for an unforgettable stay in our guesthouse.</p>
+        </article>
+    </header>
+
+    <main>
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to make a reservation, please feel free to contact us.</p>
+        <p><span class="span">Email:</span> info@guesthouseterrabella.kg
+        <p><span class="span">Phone:</span> +996 774 06 09 92</p>
+        <p><span class="span">WhatsApp:</span> +996 774 06 09 92</p>
+        <p><span class="span">Address:</span> 15 minutes from Bishkek, Kyrgyzstan <span class="span">street:</span>
+            Baichechkei 103, Arashan, <span class="span">district:</span>Alamedine, <span class="span">city:</span>
+            Bishkek</p>
+        <p>We look forward to hearing from you!</p>
+        <p>For more information about our guesthouse and the services we offer, please visit our website or contact us
+            directly.</p>
+        <p>Thank you for considering us for your stay in Kyrgyzstan. We hope to see you soon!</p>
+
+        <div class="button">
+            <a href="./index.html" class="home-link">Return to main page</a>
+        </div>
+        <div class="button">
+            <a href="contact-form.php" class="home-link">Click to contact</a>
+        </div>
+    <!-- LOCATION -->
+    <section class="location">
+            <div>
+                <h2>Location</h2>
+                <p>We are located in the beautiful mountains of Kyrgyzstan, just a short drive from Bishkek. Our
+                    guesthouse
+                    is surrounded by stunning landscapes and offers a peaceful retreat for our guests.</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22249.594392953622!2d74.63339785259838!3d42.7240196302033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38994b00043b2377%3A0xab83fb071fd0f2fc!2sGuesthouse%20Terrabella!5e0!3m2!1sru!2skg!4v1746115674302!5m2!1sru!2skg"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 Guesthouse Terrabella. All rights reserved.</p>
+        <p>For more information about our guesthouse and the services we offer, please visit our website or contact us
+            directly.</p>
+        <p>Thank you for considering us for your stay in Kyrgyzstan. We hope to see you soon!</p>
+        <p>📧 <span class="span">Email:</span> <a href="mailto:terrabella@guesthouse.kg">terrabella@guesthouse.kg</a>
+        </p>
+        <p>📞 <span class="span">Phone:</span> <a class="phone-link" href="tel:+996774060992">+996 774 06 09 92</a></p>
+        <p>📱 <span class="span">WhatsApp:</span>
+            <a class="phone-link " href="https://wa.me/+996774060992">+996 774 06 09 92</a>
+        </p>
+        <p>🌍 <span class="span">Address:</span> 15 minutes from Bishkek, Kyrgyzstan <span class="span">street:</span>
+            Baichechkei 103, Arashan, <span class="span">district:</span>Alamedine, <span class="span">city:</span>
+            Bishkek</p>
+    </footer>
+    <!--find the element with block and verify-->
+    <script>
+        function myFunction() {
+            const element = document.getElementById("menu");
+            if (element.classList.contains('visible')) {
+                element.classList.remove("visible")
+            } else {
+                element.classList.add("visible");
+            }
+        }
+    </script>
+</body>
+
+</html>

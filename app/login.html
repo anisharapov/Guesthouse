@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <title>Login</title>
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="container">
+            <h1>Guesthouse Terrabella</h1>
+            <h2>Welcome to Kyrgyzstan</h2>
+            <button class="burger" onclick="myFunction()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="menu">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./subscribe.html">Subscribe</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+                <!--Button burger-->
+                <div class="hide-menu">
+                    <button onclick="myFunction()">Close 🅇</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <article>
+            <h3>Login to Your Account</h3>
+            <form action="login.php" method="post" class="form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="consent">
+                    <input type="checkbox" id="consent" name="consent" required>
+                    I consent to the processing of my personal data for subscription purposes, as outlined in the <a
+                        href="/privacy-policy" target="_blank">Privacy Policy</a>.
+                </label>
+
+                <button type="submit">Login</button>
+
+                <p>Don't have an account? <a href="register.html">Sign up here</a></p>
+                <p>Forgot your password? <a href="reset.html">Reset it here</a></p>
+                <p>By logging in, you agree to our <a href="/terms-of-service" target="_blank">Terms of Service</a>.</p>
+            </form>
+        </article>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Guesthouse Terrabella. All rights reserved.</p>
+            <p>For more information about our guesthouse and the services we offer, please visit our website or contact
+                us
+                directly.</p>
+            <p>Thank you for considering us for your stay in Kyrgyzstan. We hope to see you soon!</p>
+            <p>📧 <span class="span">Email:</span> <a
+                    href="mailto:terrabella@guesthouse.kg">terrabella@guesthouse.kg</a>
+            </p>
+            <p>📞 <span class="span">Phone:</span> <a class="phone-link" href="tel:+996774060992">+996 774 06 09 92</a>
+            </p>
+            <p>📱 <span class="span">WhatsApp:</span>
+                <a class="phone-link " href="https://wa.me/+996774060992">+996 774 06 09 92</a>
+            </p>
+            <p>🌍 <span class="span">Address:</span> 15 minutes from Bishkek, Kyrgyzstan <span
+                    class="span">street:</span>
+                Baichechkei 103, Arashan, <span class="span">district:</span>Alamedine, <span class="span">city:</span>
+                Bishkek</p>
+        </div>
+    </footer>
+</body>
+
+</html>

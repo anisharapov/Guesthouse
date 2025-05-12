@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/createAcc.css">
+    <script src="js/script.js" defer></script>
+    <script src="js/createAcc.js" defer></script>
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <h1>Guesthouse Terrabella</h1>
+        <h2>Welcome to Kyrgyzstan</h2>
+        <button class="burger" onclick="myFunction()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <!-- Boutons pour dark mode et langue -->
+        <div class="header-controls">
+            <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="ru">Русский</option>
+            </select>
+        </div>
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="createAcc.html">Create account</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact-form.php">Click to contact</a></li>
+                <li><a href="reset.html">Reset</a></li>
+            </ul>
+            <!-- Button burger -->
+            <div class="hide-menu">
+                <button onclick="myFunction()">Close 🅇</button>
+            </div>
+        </nav>
+        <article class="hero">
+            <img class="image" src="./img/loop Kyrgyzstan2_converted.jpg" alt="helmet">
+        </article>
+    </header>
+
+
+
+
+    <main>
+        <section class="signup-section">
+            <header>
+                <h1>Créer un compte</h1>
+                <p>Remplissez le formulaire ci-dessous pour vous inscrire.</p>
+            </header>
+            <article>
+                <form action="subscribe.php" method="post" id="signup-form" novalidate>
+                    <fieldset>
+                        <legend>Informations personnelles</legend>
+                        <div class="form-group">
+                            <label for="first-name">Prénom :</label>
+                            <input type="text" id="first-name" name="first-name" required
+                                aria-describedby="first-name-error">
+                            <span id="first-name-error" class="error-message" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Nom :</label>
+                            <input type="text" id="last-name" name="last-name" required
+                                aria-describedby="last-name-error">
+                            <span id="last-name-error" class="error-message" aria-live="polite"></span>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Informations de connexion</legend>
+                        <div class="form-group">
+                            <label for="email">Adresse e-mail :</label>
+                            <input type="email" id="email" name="email" required aria-describedby="email-error">
+                            <span id="email-error" class="error-message" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe :</label>
+                            <input type="password" id="password" name="password" required
+                                pattern="(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{12,}"
+                                aria-describedby="password-error password-help">
+                            <span id="password-help" class="help-text">Le mot de passe doit contenir au moins 12
+                                caractères, une majuscule, un chiffre et un symbole (!@#$%^&*).</span>
+                            <span id="password-error" class="error-message" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirmer le mot de passe :</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required
+                                aria-describedby="confirm-password-error">
+                            <span id="confirm-password-error" class="error-message" aria-live="polite"></span>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Consentement</legend>
+                        <div class="form-group">
+                            <label for="consent">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                J'accepte le traitement de mes données personnelles conformément à la <a
+                                    href="/privacy-policy" target="_blank">Politique de confidentialité</a>.
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div class="form-footer">
+                        <p>Déjà un compte?</p>
+                        <a href="login.html">Se connecter</a>
+                    </div>
+                    <div>
+                        <button type="submit" class="button">S'inscrire</button>
+                    </div>
+                </form>
+            </article>
+        </section>
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="footer" aria-label="Footer">
+        <p>© 2023 Guesthouse Terrabella. All rights reserved.</p>
+        <p>For more information about our guesthouse and the services we offer, please visit our website or contact us directly.</p>
+        <p>Thank you for considering us for your stay in Kyrgyzstan. We hope to see you soon!</p>
+        <p>📧 <span class="span">Email:</span> <a href="mailto:terrabella@guesthouse.kg">terrabella@guesthouse.kg</a></p>
+        <p>📞 <span class="span">Phone:</span> <a class="phone-link" href="tel:+996774060992">+996 774 06 09 92</a></p>
+        <p>📱 <span class="span">WhatsApp:</span> <a class="phone-link" href="https://wa.me/+996774060992">+996 774 06 09 92</a></p>
+        <p>🌍 <span class="span">Address:</span> 15 minutes from Bishkek, Kyrgyzstan <span class="span">street:</span> Baichechkei 103, Arashan, <span class="span">district:</span> Alamedine, <span class="span">city:</span> Bishkek</p>
+    </footer>
+</body>
+
+</html>

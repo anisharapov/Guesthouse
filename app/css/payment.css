@@ -1,0 +1,138 @@
+/* Section de paiement */
+.payment-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: var(--white);
+    border: 3px solid var(--main);
+    border-radius: 10px;
+    font-family: var(--font-family);
+}
+
+.payment-section h2 {
+    font-size: var(--font-size-xxxlarge);
+    color: var(--main);
+    margin-bottom: 20px;
+}
+
+.reservation-summary {
+    margin-bottom: 20px;
+}
+
+.reservation-summary h3 {
+    font-size: var(--font-size-xlarge);
+    color: var(--main);
+    margin-bottom: 10px;
+}
+
+/* Formulaire de paiement */
+#payment-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: var(--font-size-large);
+    color: var(--main);
+    margin-bottom: 5px;
+}
+
+#card-element {
+    padding: 10px;
+    border: 2px solid var(--main);
+    border-radius: 5px;
+    background-color: var(--secondary);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--main);
+    border-radius: 5px;
+    background-color: var(--secondary);
+}
+
+/* Message d'erreur */
+.error-message {
+    color: red;
+    font-size: var(--font-size-small);
+    margin-top: 5px;
+    display: block;
+}
+
+/* Bouton Payer */
+.book-button {
+    background-color: var(--main);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: var(--font-size-xxlarge);
+    font-family: var(--font-family);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.book-button:hover:not(:disabled) {
+    background-color: var(--beige-fonce);
+    color: var(--white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.book-button:disabled {
+    background-color: var(--secondary);
+    color: var(--quaternary);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Modal (dialog) */
+dialog {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    padding: 20px;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal-content h2 {
+    font-size: var(--font-size-xlarge);
+    color: var(--main);
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    font-size: var(--font-size-large);
+    margin-bottom: 20px;
+}
+
+.close {
+    background-color: var(--main);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close:hover {
+    background-color: var(--beige-fonce);
+}

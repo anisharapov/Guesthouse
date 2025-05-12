@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/book.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <script src="./js/script.js" defer></script>
+    <script src="js/book.js" defer></script>
+    <title>Reservation</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>Guesthouse Terrabella</h1>
+        <h2>Welcome to Kyrgyzstan</h2>
+        <button class="burger" onclick="myFunction()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="header-controls">
+            <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="ru">Русский</option>
+            </select>
+        </div>
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="register.html">Create account</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact-form.php">Click to contact</a></li>
+                <li><a href="reset.html">Reset</a></li>
+            </ul>
+            <div class="hide-menu">
+                <button onclick="myFunction()">Close 🅇</button>
+            </div>
+        </nav>
+        <article class="hero">
+            <img class="image" src="./img/loop Kyrgyzstan2_converted.jpg" alt="Scenic view of Kyrgyzstan">
+        </article>
+    </header>
+
+    <main>
+        <section class="calendar-section" aria-labelledby="calendar-heading">
+            <header class="calendar-header">
+                <button id="prevMonth" class="calendar-nav" aria-label="Previous month"><</button>
+                <h2 id="currentMonth" aria-live="polite">Mai 2025</h2>
+                <button id="nextMonth" class="calendar-nav" aria-label="Next month">></button>
+            </header>
+
+            <div class="weekdays" role="row">
+                <div role="columnheader">Dim</div>
+                <div role="columnheader">Lun</div>
+                <div role="columnheader">Mar</div>
+                <div role="columnheader">Mer</div>
+                <div role="columnheader">Jeu</div>
+                <div role="columnheader">Ven</div>
+                <div role="columnheader">Sam</div>
+            </div>
+
+            <section id="calendar" class="calendar-grid" role="grid" aria-labelledby="calendar-heading">
+                <!-- Les dates du calendrier seront générées par JavaScript -->
+            </section>
+        </section>
+
+        <section id="reservationFormSection" class="reservation-form-section hidden" aria-labelledby="reservation-heading">
+            <h2 id="reservation-heading">Finalisez votre réservation</h2>
+
+            <article class="date-range-info" aria-live="polite">
+                <p id="selectedDateDisplay">
+                    <strong>Période sélectionnée :</strong>
+                    <span id="selectedDateRange">Veuillez sélectionner des dates</span>
+                </p>
+            </article>
+
+            <form id="reservationForm">
+                <fieldset class="form-group">
+                    <label for="firstName">Prénom*</label>
+                    <input type="text" id="firstName" name="firstName" required aria-required="true">
+                    <span id="firstNameError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="lastName">Nom*</label>
+                    <input type="text" id="lastName" name="lastName" required aria-required="true">
+                    <span id="lastNameError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="email">Adresse email*</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                    <span id="emailError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="phone">Numéro de téléphone*</label>
+                    <input type="tel" id="phone" name="phone" required aria-required="true">
+                    <span id="phoneError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="password">Mot de passe*</label>
+                    <input type="password" id="password" name="password" required aria-required="true">
+                    <span id="passwordError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+
+                <fieldset class="form-group checkbox">
+                    <input type="checkbox" id="gdpr" name="gdpr" required aria-required="true">
+                    <label for="gdpr">J'accepte le traitement de mes données personnelles conformément au RGPD*</label>
+                    <span id="gdprError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+
+                <div class="button">
+                    <button type="submit" id="bookButton" class="home-link book-button" disabled>Book</button>
+                </div>
+
+                <div class="button">
+                    <a href="login.html" class="home-link">Already have an account?</a>
+                </div>
+            </form>
+        </section>
+
+        <div class="button">
+            <a href="./index.html" class="home-link">Return to main page</a>
+        </div>
+    </main>
+
+    <section class="location" aria-labelledby="location-heading">
+        <h2 id="location-heading">Our location</h2>
+        <p>We are located in the beautiful mountains of Kyrgyzstan, just a short drive from Bishkek. Our guesthouse is surrounded by stunning landscapes and offers a peaceful retreat for our guests.</p>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22249.594392953622!2d74.63339785259838!3d42.7240196302033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38994b00043b2377%3A0xab83fb071fd0f2fc!2sGuesthouse%20Terrabella!5e0!3m2!1sru!2skg!4v1746115674302!5m2!1sru!2skg"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Map of our location"></iframe>
+    </section>
+
+    <footer class="footer">
+        <p>© 2023 Guesthouse Terrabella. All rights reserved.</p>
+        <p>For more information about our guesthouse and the services we offer, please visit our website or contact us directly.</p>
+        <p>Thank you for considering us for your stay in Kyrgyzstan. We hope to see you soon!</p>
+        <p>📧 <span class="span">Email:</span> <a href="mailto:terrabella@guesthouse.kg">terrabella@guesthouse.kg</a></p>
+        <p>📞 <span class="span">Phone:</span> <a class="phone-link" href="tel:+996774060992">+996 774 06 09 92</a></p>
+        <p>📱 <span class="span">WhatsApp:</span> <a class="phone-link" href="https://wa.me/+996774060992">+996 774 06 09 92</a></p>
+        <p>🌍 <span class="span">Address:</span> 15 minutes from Bishkek, Kyrgyzstan <span class="span">street:</span> Baichechkei 103, Arashan, <span class="span">district:</span> Alamedine, <span class="span">city:</span> Bishkek</p>
+    </footer>
+
+</body>
+
+</html>

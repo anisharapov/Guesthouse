@@ -1,0 +1,39 @@
+@media (max-width: 768px) {
+    body {
+        padding: 0px;
+    }
+
+    section {
+        padding: 0px 10px;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .hide-menu {
+        display: block;
+        text-align: center;
+    }
+
+    #menu {
+
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--white);
+        z-index: 10;
+        width: 80%;
+        right: -80%;
+        transition: all 0.3s;
+    }
+
+    #menu.visible {
+        right: 0;
+        display: block;
+    }
+.hide-menu button{
+    background-color: red;
+}
+}

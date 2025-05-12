@@ -1,0 +1,234 @@
+:root {
+    --main: black;
+    --primary: #c8ad7f;
+    --secondary: #f6e6d1;
+    --tertiary: #fdf1b8;
+    --quaternary: #ebe3d5;
+    --white: #ffffff;
+    --beige-fonce: #b69b4c;
+    --font-family: 'Poppins', 'Courier New', Courier, monospace;
+    --font-size: 16px;
+    --font-size-large: 20px;
+    --font-size-xxlarge: 24px;
+    --font-size-xxxlarge: 28px;
+    --font-size-xxxxlarge: 32px;
+    --font-size-small: 14px;
+    --font-size-xsmall: 12px;
+    --font-size-xxsmall: 10px;
+}
+
+/* Styles généraux */
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    color: var(--main);
+    background-color: var(--quaternary);
+}
+
+/* Calendar Styles */
+.calendar-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-nav {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.calendar-nav:hover {
+    background-color: #ddd;
+}
+
+.calendar-day.disabled {
+    background-color: var(--quaternary); /* #ebe3d5 */
+    color: var(--secondary); /* #f6e6d1 */
+    cursor: not-allowed;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.calendar-day:hover {
+    background-color: #e0f7fa;
+}
+
+.calendar-day.selected {
+    background-color: #3498db;
+    color: white;
+}
+
+.calendar-day.start-date {
+    background-color: #2980b9;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-day.end-date {
+    background-color: #2980b9;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-day.in-range {
+    background-color: #a4d4f8;
+    color: #2c3e50;
+}
+
+.calendar-day.unavailable {
+    background-color: #f1f1f1;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.calendar-day.empty {
+    background-color: transparent;
+    cursor: default;
+}
+
+/* Form Styles */
+.reservation-form-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Formulaire */
+.reservation-form-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: var(--white);
+    border: 3px solid var(--main);
+    border-radius: 10px;
+}
+
+
+
+/* Récapitulatif de la réservation */
+.reservation-summary {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--quaternary);
+    border-radius: 5px;
+}
+
+.reservation-summary h3 {
+    font-size: var(--font-size-xxlarge);
+    color: var(--main);
+    margin-bottom: 10px;
+}
+
+.reservation-summary p {
+    font-size: var(--font-size);
+    color: var(--main);
+    margin: 5px 0;
+}
+
+
+
+/* Messages d'erreur */
+.error-message {
+    color: var(--main);
+    font-size: var(--font-size-xsmall);
+    margin-top: 5px;
+    display: block;
+}
+#selectedDateDisplay {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #2c3e50;
+}
+/* Bouton Book */
+.book-button {
+    background-color: var(--main);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: var(--font-size-xxlarge);
+    font-family: var(--font-family);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.book-button:hover:not(:disabled) {
+    background-color: var(--beige-fonce);
+    color: var(--white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.book-button:disabled,
+.book-button.disabled {
+    background-color: var(--secondary);
+    color: var(--quaternary);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Fieldset */
+fieldset.form-group {
+    border: none;
+    padding: 0;
+    margin: 0 0 15px;
+}
+
+/* Modale */
+.modal-content {
+    background-color: var(--white);
+    padding: 20px;
+    border: 3px solid var(--main);
+    border-radius: 10px;
+    font-family: var(--font-family);
+}
+
+.close {
+    background: none;
+    border: none;
+    font-size: var(--font-size-large);
+    cursor: pointer;
+    color: var(--main);
+}

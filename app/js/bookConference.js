@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentMonth = currentDate.getMonth();
     let currentYear = currentDate.getFullYear();
     let selectedDates = [];
-    const pricePerNight = 99; // Fixed price per night in USD
+    const pricePerNight = 149; // Fixed price per night in USD
 
     // Format date as YYYY-MM-DD for comparison
     const formatDate = (date) => {

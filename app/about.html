@@ -15,32 +15,38 @@
 <body>
     <!-- header -->
     <header class="header">
-        <h1>Guesthouse Terrabella</h1>
+        <h2>Guesthouse</h2>
+        <h1>Terrabella</h1>
         <h2>Welcome to Kyrgyzstan</h2>
-        <button class="burger" onclick="myFunction()">
+        <button class="burger" onclick="myFunction()" aria-label="Toggle menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <!-- Boutons pour dark mode et langue -->
+        <!-- Boutons pour dark mode, langue, et panier -->
         <div class="header-controls">
             <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
-            <select id="languageSelect" onchange="changeLanguage()">
+            <select id="languageSelect" onchange="changeLanguage()" aria-label="Select language">
                 <option value="en">English</option>
                 <option value="fr">Français</option>
                 <option value="ru">Русский</option>
             </select>
+            <a href="panier.html" class="cart-icon" aria-label="View cart">
+                <span class="cart-symbol">🛒</span>
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
         </div>
         <nav id="menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="register.html">Create account</a></li>
+                <li><a href="createAcc.html">Create account</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="contact-form.php">Click to contact</a></li>
                 <li><a href="reset.html">Reset</a></li>
+                <li><a href="panier.html">Cart</a></li>
             </ul>
             <!-- Button burger -->
             <div class="hide-menu">
@@ -48,7 +54,7 @@
             </div>
         </nav>
         <article class="hero">
-            <img class="image" src="./img/loop Kyrgyzstan2_converted.jpg" alt="helmet">
+            <img class="image" src="./img/loop Kyrgyzstan2_converted.jpg" alt="Scenic view of Kyrgyzstan mountains">
         </article>
     </header>
     <main>

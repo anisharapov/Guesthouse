@@ -1,0 +1,142 @@
+/* Styles spécifiques à bookGym.html */
+
+/* Calendar Styles */
+.calendar-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.calendar-wrapper {
+    text-align: center;
+}
+
+.calendar-nav {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.nav-arrow {
+    background-color: var(--beige-fonce);
+    color: var(--white);
+    border: 2px solid var(--main);
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: var(--font-size-large);
+    transition: all 0.3s;
+}
+
+.nav-arrow:hover {
+    background-color: var(--main);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-arrow:disabled {
+    background-color: var(--quaternary);
+    color: var(--main);
+    cursor: not-allowed;
+    border-color: var(--quaternary);
+}
+
+.calendar-grid {
+    width: 300px;
+    padding: 10px;
+    background-color: var(--white);
+    border: 3px solid var(--main);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-grid h4 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: var(--font-size-large);
+    color: var(--main);
+    font-family: var(--font-family);
+}
+
+.calendar-grid .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    text-align: center;
+}
+
+.calendar-grid .day {
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--secondary);
+    border: 1px solid var(--main);
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.calendar-grid .day:hover {
+    background-color: var(--quaternary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-grid .day.selected {
+    background-color: var(--beige-fonce);
+    color: var(--white);
+    border-color: var(--main);
+}
+
+.calendar-grid .day.disabled {
+    color: var(--quaternary);
+    background-color: var(--white);
+    cursor: not-allowed;
+    border-color: var(--quaternary);
+}
+
+.calendar-grid .day-header {
+    font-weight: bold;
+    padding: 5px;
+    background-color: var(--tertiary);
+    color: var(--main);
+    font-size: var(--font-size-small);
+    font-family: var(--font-family);
+}
+
+/* Subscription Price */
+.subscription-price {
+    font-size: var(--font-size-large);
+    margin-bottom: 15px;
+    color: var(--main);
+    text-align: center;
+    font-family: var(--font-family);
+}
+
+/* Form Buttons */
+.form-buttons {
+    display: flex;
+    justify-content: center; /* Centre les boutons horizontalement */
+    gap: 20px; /* Espacement entre les boutons */
+    margin-top: 20px;
+}
+
+.form-buttons .home-link {
+    width: 150px; /* Taille fixe pour uniformiser */
+    padding: 10px 0; /* Padding vertical pour une hauteur uniforme */
+    font-size: var(--font-size-large);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.home-link:disabled {
+    background-color: var(--secondary);
+    color: var(--quaternary);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

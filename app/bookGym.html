@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Gym Subscription - Terrabella</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bookGym.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <script src="js/script.js" defer></script>
+    <script src="js/bookGym.js" defer></script>
+</head>
+
+<body class="book">
+    <!-- Guesthouse Header -->
+    <header class="header">
+        <h2>Guesthouse</h2>
+        <h1>Terrabella</h1>
+        <h2>Welcome to Kyrgyzstan</h2>
+        <button class="burger" onclick="myFunction()" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="header-controls">
+            <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+            <select id="languageSelect" onchange="changeLanguage()" aria-label="Select language">
+                <option value="en">English</option>
+                <option value="fr" selected>Français</option>
+                <option value="ru">Русский</option>
+            </select>
+            <a href="panier.html" class="cart-icon" aria-label="View cart">
+                <span class="cart-symbol">🛒</span>
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
+        </div>
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="createAcc.html">Create account</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact-form.php">Click to contact</a></li>
+                <li><a href="reset.html">Reset</a></li>
+                <li><a href="panier.html">Cart</a></li>
+            </ul>
+            <div class="hide-menu">
+                <button onclick="myFunction()">Close 🅇</button>
+            </div>
+        </nav>
+        <article class="hero">
+            <img class="image" src="./img/loop Kyrgyzstan2_converted.jpg" alt="Scenic view of Kyrgyzstan mountains">
+        </article>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="calendarSection" aria-labelledby="calendar-heading">
+            <h3 id="calendar-heading">Sélectionnez la date de début de votre abonnement</h3>
+            <div class="calendar-container">
+                <div class="calendar-wrapper">
+                    <h4 id="calendar1-title"></h4>
+                    <div class="calendar-nav">
+                        <button class="nav-arrow" id="prevMonth1"
+                            aria-label="Mois précédent pour le premier calendrier">&#9664;</button>
+                        <div id="calendar1" class="calendar-grid" role="grid" aria-labelledby="calendar-heading"></div>
+                        <button class="nav-arrow" id="nextMonth1"
+                            aria-label="Mois suivant pour le premier calendrier">&#9654;</button>
+                    </div>
+                </div>
+                <div class="calendar-wrapper">
+                    <h4 id="calendar2-title"></h4>
+                    <div class="calendar-nav">
+                        <button class="nav-arrow" id="prevMonth2"
+                            aria-label="Mois précédent pour le deuxième calendrier">&#9664;</button>
+                        <div id="calendar2" class="calendar-grid" role="grid" aria-labelledby="calendar-heading"></div>
+                        <button class="nav-arrow" id="nextMonth2"
+                            aria-label="Mois suivant pour le deuxième calendrier">&#9654;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reservationFormSection" class="reservation-form-section hidden"
+            aria-labelledby="reservation-heading">
+            <h3 id="reservation-heading">Finalize Your Reservation</h3>
+            <p class="subscription-price"><strong>Prix :</strong> 39 $ par mois</p>
+            <article class="date-range-info" aria-live="polite">
+                <p id="selectedDateDisplay">
+                    <strong>Période sélectionnée :</strong>
+                    <span id="selectedDateRange">Veuillez sélectionner une date</span>
+                </p>
+            </article>
+            <form id="reservationForm">
+                <fieldset class="form-group">
+                    <label for="firstName">Prénom*</label>
+                    <input type="text" id="firstName" name="firstName" required aria-required="true">
+                    <span id="firstNameError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="lastName">Nom*</label>
+                    <input type="text" id="lastName" name="lastName" required aria-required="true">
+                    <span id="lastNameError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="email">Adresse email*</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                    <span id="emailError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="phone">Numéro de téléphone*</label>
+                    <input type="tel" id="phone" name="phone" required aria-required="true">
+                    <span id="phoneError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="password">Mot de passe*</label>
+                    <input type="password" id="password" name="password" required aria-required="true">
+                    <span id="passwordError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+                <fieldset class="form-group checkbox">
+                    <input type="checkbox" id="gdpr" name="gdpr" required aria-required="true">
+                    <label for="gdpr">J'accepte le traitement de mes données personnelles conformément au RGPD*</label>
+                    <span id="gdprError" class="error-message" aria-live="polite"></span>
+                </fieldset>
+                <div class="form-buttons">
+                    <button type="submit" id="bookButton" class="home-link" disabled>Book</button>
+
+                    <button type="button" id="addToCartButton" class="home-link" disabled>Add to card</button>
+                </div>
+                <div class="button">
+                    <a href="login.html" class="home-link">Vous avez déjà un compte ?</a>
+                </div>
+            </form>
+        </section>
+
+        <section class="location" aria-labelledby="location-heading">
+            <h2 id="location-heading">Notre emplacement</h2>
+            <p>Nous sommes situés dans les magnifiques montagnes du Kirghizistan, à seulement quelques minutes en
+                voiture de Bichkek. Notre maison d'hôtes est entourée de paysages époustouflants et offre une retraite
+                paisible pour nos clients.</p>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22249.594392953622!2d74.63339785259838!3d42.7240196302033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38994b00043b2377%3A0xab83fb071fd0f2fc!2sGuesthouse%20Terrabella!5e0!3m2!1sru!2skg!4v1746115674302!5m2!1sru!2skg"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="Carte de notre emplacement"></iframe>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2023 Guesthouse Terrabella. Tous droits réservés.</p>
+        <p>Pour plus d'informations sur notre maison d'hôtes et les services que nous proposons, veuillez visiter notre
+            site web ou nous contacter directement.</p>
+        <p>Merci de nous considérer pour votre séjour au Kirghizistan. Nous espérons vous voir bientôt !</p>
+        <p>📧 <span class="span">Email :</span> <a href="mailto:terrabella@guesthouse.kg">terrabella@guesthouse.kg</a>
+        </p>
+        <p>📞 <span class="span">Téléphone :</span> <a class="phone-link" href="tel:+996774060992">+996 774 06 09 92</a>
+        </p>
+        <p>📱 <span class="span">WhatsApp :</span> <a class="phone-link" href="https://wa.me/+996774060992">+996 774 06
+                09 92</a></p>
+        <p>🌍 <span class="span">Adresse :</span> À 15 minutes de Bichkek, Kirghizistan <span class="span">rue :</span>
+            Baichechkei 103, Arashan, <span class="span">district :</span> Alamedine, <span class="span">ville :</span>
+            Bichkek</p>
+    </footer>
+</body>
+
+</html>

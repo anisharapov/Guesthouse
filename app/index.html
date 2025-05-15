@@ -8,24 +8,26 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/mobile.css">
     <script src="js/script.js" defer></script>
+    <script src="js/panier.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <title>Document</title>
+    <title>Guesthouse Terrabella - Kyrgyzstan</title>
 </head>
 
 <body>
     <!-- header -->
     <header class="header">
-        <h1>Guesthouse Terrabella</h1>
+        <h2>Guesthouse</h2>
+        <h1>Terrabella</h1>
         <h2>Welcome to Kyrgyzstan</h2>
-        <button class="burger" onclick="myFunction()">
+        <button class="burger" onclick="myFunction()" aria-label="Toggle menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <!-- Boutons pour dark mode et langue -->
+        <!-- Boutons pour dark mode, langue, et panier -->
         <div class="header-controls">
             <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
-            <select id="languageSelect" onchange="changeLanguage()">
+            <select id="languageSelect" onchange="changeLanguage()" aria-label="Select language">
                 <option value="en">English</option>
                 <option value="fr">Français</option>
                 <option value="ru">Русский</option>
@@ -38,9 +40,8 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="createAcc.html">Create account</a></li>
                 <li><a href="login.html">Login</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="contact-form.php">Click to contact</a></li>
-                <li><a href="reset.html">Reset</a></li>
+                <li><a href="contact-form.php">Contact</a></li>
+                <li><a href="panier.html">Cart</a></li>
             </ul>
             <!-- Button burger -->
             <div class="hide-menu">
@@ -48,51 +49,50 @@
             </div>
         </nav>
         <article class="hero">
-            <img class="image" src="./img/loop Kyrgyzstan2_converted.jpg" alt="helmet">
+            <img class="image" src="./img/loop Kyrgyzstan2_converted.jpg" alt="Scenic view of Kyrgyzstan mountains">
         </article>
     </header>
     <!-- main -->
     <main>
-
         <!--Section CARROUSSEL-->
         <section class="section">
             <article class="carroussel">
                 <div class="carroussel-container">
                     <div class="carroussel-item">
                         <h3>Welcome to Terrabella</h3>
-                        <img src="img/helmets2_converted.jpg" alt="helmets">
+                        <img src="img/helmets2_converted.jpg" alt="Motorcycle helmets">
                     </div>
                     <div class="carroussel-item">
                         <h3>King size bedroom</h3>
-                        <img src="img/Room 1.jpg" alt="room">
+                        <img src="img/Room 1.jpg" alt="King size bedroom">
                     </div>
                     <div class="carroussel-item">
                         <h3>Smart gym</h3>
-                        <img src="img/gym left.jpg" alt="gym">
+                        <img src="img/gym left.jpg" alt="Gym equipment">
                     </div>
                     <div class="carroussel-item">
                         <h3>Veranda</h3>
-                        <img src="img/veranda 1.jpg" alt="veranda">
+                        <img src="img/veranda 1.jpg" alt="Guesthouse veranda">
                     </div>
                     <div class="carroussel-item">
                         <h3>Coffee corner</h3>
-                        <img src="img/coffee spoons_converted.jpg" alt="coffee corner">
+                        <img src="img/coffee spoons_converted.jpg" alt="Coffee corner setup">
                     </div>
                     <div class="carroussel-item">
                         <h3>Library</h3>
-                        <img src="img/library_converted.jpg" alt="library">
+                        <img src="img/library_converted.jpg" alt="Library with books">
                     </div>
                     <div class="carroussel-item">
                         <h3>Confortable office</h3>
-                        <img src="img/bureau table.jpg" alt="office">
+                        <img src="img/bureau table.jpg" alt="Office desk">
                     </div>
                     <div class="carroussel-item">
                         <h3>Conference room for 12 persons</h3>
-                        <img src="img/conference table_converted.jpg" alt="office">
+                        <img src="img/conference table_converted.jpg" alt="Conference room">
                     </div>
                     <div class="carroussel-item">
                         <h3>Tasty dinner and breakfast</h3>
-                        <img src="img/table wine.jpg" alt="office">
+                        <img src="img/table wine.jpg" alt="Dining table with food">
                     </div>
                 </div>
             </article>
@@ -103,9 +103,12 @@
             <article class="room">
                 <h2>KING SIZE ROOM</h2>
                 <p>Book a king size room 2,20 meter large with a Orthopedic Mattress </p>
-                <img src="img/Room 1.jpg" alt="room">
+                <img src="img/Room 1.jpg" alt="King size bedroom">
+                <div class="price">
+                    <p>From 99$ per night</p>
+                </div>
                 <div class="button">
-                    <a href="book.html" class="home-link">MAKE A RESERVATION</a>
+                    <a href="book.html" class="home-link">CHECK THE AVAILABILITY</a>
                 </div>
             </article>
             <!-------Section CONFERENCE ROOMS------->
@@ -114,9 +117,12 @@
                 <p>Our elegant conference room, equipped with modern audiovisual technology, is perfect for professional
                     meetings and events. It offers a comfortable, versatile space accommodating up to 12 guests
                 </p>
-                <img src="img/conference table_converted.jpg" alt="room">
+                <img src="img/conference table_converted.jpg" alt="Conference room">
+                <div class="price">
+                    <p>From 149$ per session</p>
+                </div>
                 <div class="button">
-                    <a href="book.html" class="home-link">MAKE A RESERVATION</a>
+                    <a href="bookConference.html" class="home-link">MAKE A RESERVATION</a>
                 </div>
             </article>
             <!--------Section GYM--------->
@@ -126,71 +132,55 @@
                     invigorating workout experience. Open daily, it provides a spacious and motivating environment for
                     your wellness needs
                 </p>
-                <img src="img/gym right.jpg" alt="room">
+                <img src="img/gym right.jpg" alt="Smart gym">
+                <div class="price">
+                    <p>39$ per month</p>
+                    <p>Included for the guests</p>
+                </div>
                 <div class="button">
-                    <a href="book.html" class="home-link">MAKE A RESERVATION</a>
+                    <a href="bookGym.html" class="home-link">Buy a subscription</a>
                 </div>
             </article>
         </section>
         <!--------Section ABOUT US-------->
         <section class="section">
             <h2>About Us</h2>
-            <img src="img/map1_converted.jpg" alt="">
+            <img src="img/map1_converted.jpg" alt="Map of Kyrgyzstan">
             <article>
                 <p>
                     We are a family-run guesthouse located in the heart of Kyrgyzstan. Our mission is to provide a warm
-                    and
-                    welcoming environment for all our guests. Our guesthouse is surrounded by stunning mountains and
-                    beautiful landscapes, making it the perfect
-                    place
-                    to relax and unwind. Our guesthouse is surrounded by stunning mountains and beautiful landscapes,
-                    making
-                    it the perfect
-                    place to relax and unwind.
+                    and welcoming environment for all our guests. Our guesthouse is surrounded by stunning mountains and
+                    beautiful landscapes, making it the perfect place to relax and unwind.
                 </p>
             </article>
         </section>
 
         <section class="section">
             <h2>About Kyrgyzstan</h2>
-            <img src="img/plume livre kgz_converted.jpg" alt="">
+            <img src="img/plume livre kgz_converted.jpg" alt="Kyrgyzstan cultural book">
             <article>
                 <p>
                     Kyrgyzstan is a country located in Central Asia, known for its stunning natural beauty, rich
-                    culture, and
-                    warm hospitality. The country is home to the majestic Tien Shan mountains, pristine lakes, and vast
-                    steppes, making it a paradise for outdoor enthusiasts and nature lovers. Kyrgyzstan is also known
-                    for
-                    its rich cultural heritage, with a blend of nomadic traditions and modern influences. Visitors can
-                    experience traditional Kyrgyz hospitality, sample delicious local cuisine, and explore the vibrant
-                    culture of this unique country. Whether you're interested in hiking, horseback riding, or simply
-                    relaxing in the
-                    breathtaking scenery, Kyrgyzstan has something to offer for everyone. The country is also home to a
-                    number of UNESCO World Heritage sites, including the ancient Silk Road cities of Osh and Bishkek.
-                    With
-                    its stunning landscapes, rich culture, and warm hospitality, Kyrgyzstan is a must-visit destination
-                    for
+                    culture, and warm hospitality. The country is home to the majestic Tien Shan mountains, pristine
+                    lakes,
+                    and vast steppes, making it a paradise for outdoor enthusiasts and nature lovers. Kyrgyzstan is also
+                    known for its rich cultural heritage, with a blend of nomadic traditions and modern influences.
+                    Visitors can experience traditional Kyrgyz hospitality, sample delicious local cuisine, and explore
+                    the
+                    vibrant culture of this unique country.
                 </p>
             </article>
         </section>
-        <section>
+        <section class="section">
             <h2>Why choose this destination</h2>
-            <img src="img/plume Kyrgyzstan_converted.jpg" alt="map">
+            <img src="img/plume Kyrgyzstan_converted.jpg" alt="Kyrgyzstan landscape">
             <article>
                 <p>
-                    Kyrgyzstan is a country located in Central Asia, known for its stunning natural beauty, rich
-                    culture, and
-                    warm hospitality. The country is home to the majestic Tien Shan mountains, pristine lakes, and vast
-                    steppes, making it a paradise for outdoor enthusiasts and nature lovers. Kyrgyzstan is also known
-                    for
-                    its rich cultural heritage, with a blend of nomadic traditions and modern influences. Visitors can
-                    experience traditional Kyrgyz hospitality, sample delicious local cuisine, and explore the vibrant
-                    culture of this unique country. Whether you're interested in hiking, horseback riding, or simply
-                    relaxing in the
-                    breathtaking scenery, Kyrgyzstan has something to offer for everyone. The country is also home to a
-                    number of UNESCO World Heritage sites, including the ancient Silk Road cities of Osh and Bishkek.
-                    With
-                    its stunning landscapes, rich culture, and warm hospitality, Kyrgyzstan is a must-visit destination
+                    Kyrgyzstan offers a unique blend of adventure and tranquility. Whether you're hiking in the Tien
+                    Shan
+                    mountains, horseback riding across vast steppes, or exploring UNESCO World Heritage sites like the
+                    ancient Silk Road cities of Osh and Bishkek, this destination has something for everyone. Experience
+                    warm Kyrgyz hospitality and breathtaking scenery at Guesthouse Terrabella.
                 </p>
             </article>
         </section>
@@ -200,8 +190,8 @@
 
         <!-- LOCATION -->
         <section>
-            <div>
-                <h3>Kyrgyzstan nature in 4K</h3>
+            <div class="youtube">
+                <h3>The Nature of the Kyrgyzstan in 4K</h3>
                 <iframe width="100%" height="450" src="https://www.youtube.com/embed/Qp37q2-Gjvw?si=jZYRfmvjxGGWCE1v"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -209,30 +199,30 @@
             </div>
             <div class="location">
                 <h2>Location</h2>
-                <p>We are located in the beautiful mountains of Kyrgyzstan, just a short drive from Bishkek. Our
-                    guesthouse
-                    is surrounded by stunning landscapes and offers a peaceful retreat for our guests.</p>
+                <p>
+                    We are located in the beautiful mountains of Kyrgyzstan, just a short drive from Bishkek. Our
+                    guesthouse is surrounded by stunning landscapes and offers a peaceful retreat for our guests.
+                </p>
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22249.594392953622!2d74.63339785259838!3d42.7240196302033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38994b00043b2377%3A0xab83fb071fd0f2fc!2sGuesthouse%20Terrabella!5e0!3m2!1sru!2skg!4v1746115674302!5m2!1sru!2skg"
                     width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    referrerpolicy="no-referrer-when-cross-origin"></iframe>
             </div>
         </section>
     </main>
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2023 Guesthouse Terrabella. All rights reserved.</p>
+        <p>© 2023 Guesthouse Terrabella. All rights reserved.</p>
         <p>For more information about our guesthouse and the services we offer, please visit our website or contact us
             directly.</p>
-        <p>Thank you for considering us for your stay in Kyrgyzstan. We hope to see you soon!</p>
         <p>📧 <span class="span">Email:</span> <a href="mailto:terrabella@guesthouse.kg">terrabella@guesthouse.kg</a>
         </p>
         <p>📞 <span class="span">Phone:</span> <a class="phone-link" href="tel:+996774060992">+996 774 06 09 92</a></p>
         <p>📱 <span class="span">WhatsApp:</span>
-            <a class="phone-link " href="https://wa.me/+996774060992">+996 774 06 09 92</a>
+            <a class="phone-link" href="https://wa.me/+996774060992">+996 774 06 09 92</a>
         </p>
         <p>🌍 <span class="span">Address:</span> 15 minutes from Bishkek, Kyrgyzstan <span class="span">street:</span>
-            Baichechkei 103, Arashan, <span class="span">district:</span>Alamedine, <span class="span">city:</span>
+            Baichechkei 103, Arashan, <span class="span">district:</span> Alamedine, <span class="span">city:</span>
             Bishkek</p>
     </footer>
 </body>

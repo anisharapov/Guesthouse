@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/mobile.css">
+    <link rel="stylesheet" href="css/panier.css">
+    <script src="./js/panier.js" defer></script>
+    <title>Cart - Guesthouse Terrabella</title>
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <h2>Guesthouse</h2>
+        <h1>Terrabella</h1>
+        <h2>Welcome to Kyrgyzstan</h2>
+        <button class="burger" onclick="myFunction()" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <!-- Boutons pour dark mode, langue, et panier -->
+        <div class="header-controls">
+            <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark Mode</button>
+            <select id="languageSelect" onchange="changeLanguage()" aria-label="Select language">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="ru">Русский</option>
+            </select>
+            <a href="panier.html" class="cart-icon" aria-label="View cart">
+                <span class="cart-symbol">🛒</span>
+                <span id="cart-count" class="cart-count">0</span>
+            </a>
+        </div>
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="createAcc.html">Create account</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact-form.php">Click to contact</a></li>
+                <li><a href="reset.html">Reset</a></li>
+                <li><a href="panier.html">Cart</a></li>
+            </ul>
+            <!-- Button burger -->
+            <div class="hide-menu">
+                <button onclick="myFunction()">Close 🅇</button>
+            </div>
+        </nav>
+        <article class="hero">
+            <img class="image" src="./img/loop Kyrgyzstan2_converted.jpg" alt="Scenic view of Kyrgyzstan mountains">
+        </article>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <section class="section cart-section">
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <div id="cart-total">
+                <p>Total: $<span id="total-price">0</span></p>
+            </div>
+            <div class="button">
+                <button id="checkout-btn" disabled>Proceed to Checkout</button>
+            </div>
+        </section>
+        <section class="section">
+            <article>
+                <h4>Complete Reservation Conditions</h4>
+                <p class="booking-policy">
+                    Your reservation is flexible and cancellable 72 hours before your arrival with no charges. Below is
+                    a detailed set of reservation conditions for Guesthouse Terrabella, including the
+                    cancellation policy you provided, along with other standard terms that would apply to a guesthouse
+                    offering rooms, conference spaces, and gym access.
+                </p>
+                <h4>Cancellation Policy:</h4>
+                <p class="booking-policy">
+                    Your reservation is flexible and cancellable 72 hours before your arrival with no charges. Your
+                    reservation is flexible and cancellable 72 hours before your arrival with no charges.
+
+                    Cancellations made less than 72 hours before arrival will incur a charge of 100% of the first
+                    night's stay.
+
+                    No-shows (failure to arrive without prior cancellation) will be charged the full amount of the
+                    reservation.
+                </p>
+                <h4>Modification Policy:</h4>
+                <p class="booking-policy">
+                    Modifications to your reservation (e.g., changing dates, room type, or services) can be made up to
+                    72 hours before arrival, subject to availability, at no additional cost.
+
+                    Modifications within 72 hours of arrival may incur a fee or be subject to rate changes based on
+                    availability.
+                </p>
+                <h4>Check-In and Check-Out:</h4>
+                <p class="booking-policy">
+                    Check-in time is from 2:00 PM on the day of arrival.
+
+                    Check-out time is by 12:00 PM (noon) on the day of departure.
+
+                    Early check-in or late check-out may be available upon request, subject to availability, and may
+                    incur additional charges.
+                </p>
+
+                <h4>Payment Terms:</h4>
+                <p class="booking-policy">
+                    Accepted payment methods include credit/debit cards (Visa, MasterCard), bank transfers, and cash in
+                    Kyrgyzstani Som (KGS) or US Dollars (USD).
+
+                    The remaining balance (if a deposit was paid) is due upon check-in.
+
+                    All rates are quoted in USD and include applicable taxes and service fees unless otherwise stated.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2023 Guesthouse Terrabella. All rights reserved.</p>
+        <p>For more information about our guesthouse and the services we offer, please visit our website or contact us
+            directly.</p>
+        <p>📧 <span class="span">Email:</span> <a href="mailto:terrabella@guesthouse.kg">terrabella@guesthouse.kg</a>
+        </p>
+        <p>📞 <span class="span">Phone:</span> <a class="phone-link" href="tel:+996774060992">+996 774 06 09 92</a></p>
+        <p>📱 <span class="span">WhatsApp:</span>
+            <a class="phone-link" href="https://wa.me/+996774060992">+996 774 06 09 92</a>
+        </p>
+        <p>🌍 <span class="span">Address:</span> 15 minutes from Bishkek, Kyrgyzstan <span class="span">street:</span>
+            Baichechkei 103, Arashan, <span class="span">district:</span> Alamedine, <span class="span">city:</span>
+            Bishkek</p>
+    </footer>
+</body>
+
+</html>

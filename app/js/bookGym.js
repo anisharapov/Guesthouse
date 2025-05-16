@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const diffDays = Math.round((selectedEndDate - selectedStartDate) / (1000 * 60 * 60 * 24)) + 1;
             const months = Math.ceil(diffDays / 30);
             const totalPrice = months * pricePerMonth;
-            selectedDateDisplay.textContent = `${startStr} au ${endStr} (${months} mois, Total : ${totalPrice} $)`;
+            selectedDateDisplay.textContent = `${startStr} au ${endStr} (${months} mois, Total : ${totalPrice} $)`
         } else {
             selectedDateDisplay.textContent = 'Veuillez sélectionner une date';
         }
@@ -247,13 +247,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gérer la soumission du formulaire
     reservationForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        if (validateForm()) {
-            alert('Réservation effectuée avec succès !');
-            reservationForm.reset();
-            selectedStartDate = null;
-            selectedEndDate = null;
-            updateButtonState();
-            reservationFormSection.classList.add('hidden');
+        if (validateForm(true)) {
+            // Calculer les totaux
+            const diffDays = Math.round((selectedEndDate - selectedStartDate) / (1000 * 60 * 60 * 24)) + 1;
+            const months = Math.ceil(diffDays / 30);
+            const totalPrice = months * pricePerMonth;
+
+            // Créer l'objet checkoutData pour payment.js
+            const checkoutData = {
+                items: [{
+                    type: 'subscription',
+                    name: 'Abonnement Gym',
+                    startDate: selectedStartDate.toISOString().split('T')[0],
+                    endDate: selectedEndDate.toISOString().split('T')[0],
+                    months: months,
+                    price: totalPrice
+                }],
+                totalPrice: totalPrice
+            };
+
+            // Stocker dans localStorage
+            localStorage.setItem('checkoutData', JSON.stringify(checkoutData));
+
+            // Stocker les données utilisateur (optionnel, pour usage ultérieur)
+            const userData = {
+                firstName: firstName.value.trim(),
+                lastName: lastName.value.trim(),
+                email: email.value.trim(),
+                phone: phone.value.trim(),
+                password: password.value.trim()
+            };
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            // Rediriger vers payment.html
+            window.location.href = 'payment.html';
         }
     });
 

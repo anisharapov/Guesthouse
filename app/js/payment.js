@@ -25,6 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p><strong>Price:</strong> $${item.price.toFixed(2)}</p>
                     <hr>
                 `;
+            } else if (item.type === 'subscription') {
+                return `
+                    <p><strong>Abonnement:</strong> ${item.name}</p>
+                    <p><strong>Dates:</strong> ${item.startDate} au ${item.endDate}</p>
+                    <p><strong>Mois:</strong> ${item.months}</p>
+                    <p><strong>Prix:</strong> $${item.price.toFixed(2)}</p>
+                    <hr>
+                `;
             } else {
                 return `
                     <p><strong>Item:</strong> ${item.name}</p>
@@ -149,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.removeItem('reservation');
             localStorage.removeItem('checkoutData');
             localStorage.removeItem('cart');
+            localStorage.removeItem('userData'); // Ajout pour effacer userData
             window.location.href = 'confirmation.html';
         }
     });

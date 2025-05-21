@@ -153,12 +153,15 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         if (!payButton.disabled) {
-            alert('Payment processed successfully!');
+            // Cacher le formulaire de paiement
+            document.querySelector('.payment-section').style.display = 'none';
+            // Afficher le message de confirmation
+            document.getElementById('success-message').style.display = 'flex';
+            // Effacer les données locales
             localStorage.removeItem('reservation');
             localStorage.removeItem('checkoutData');
             localStorage.removeItem('cart');
-            localStorage.removeItem('userData'); // Ajout pour effacer userData
-            window.location.href = 'confirmation.html';
+            localStorage.removeItem('userData');
         }
     });
 

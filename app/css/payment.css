@@ -122,3 +122,35 @@ main {
     font-size: var(--font-size-large);
     font-weight: 700;
 }
+
+/* Styles pour le message de confirmation */
+.success-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+}
+
+.success-content {
+    background: var(--secondary); /* Utilise la couleur de fond secondaire */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+}
+
+.checkmark {
+    display: inline-block;
+    font-size: 48px;
+    color: #28a745; /* Couleur verte pour la coche */
+    margin-bottom: 20px;
+}
+
+.success-content p {
+    font-size: var(--font-size-large);
+    color: var(--main);
+    margin: 0;
+}

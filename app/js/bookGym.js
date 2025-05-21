@@ -310,14 +310,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function validateForm(showErrors = false) {
         let isValid = true;
         const fields = [
-            { id: 'firstName', errorId: 'firstNameError', message: 'Veuillez entrer votre prénom' },
-            { id: 'lastName', errorId: 'lastNameError', message: 'Veuillez entrer votre nom' },
-            { id: 'email', errorId: 'emailError', message: 'Veuillez entrer une adresse email valide', type: 'email' },
-            { id: 'phone', errorId: 'phoneError', message: 'Veuillez entrer un numéro de téléphone valide', type: 'tel' },
+            { id: 'firstName', errorId: 'firstNameError', message: 'Please enter your first name' },
+            { id: 'lastName', errorId: 'lastNameError', message: 'Please enter your last name' },
+            { id: 'email', errorId: 'emailError', message: 'Please enter a valid e-mail address', type: 'email' },
+            { id: 'phone', errorId: 'phoneError', message: 'Please enter a valid phone number', type: 'tel' },
             {
                 id: 'password',
                 errorId: 'passwordError',
-                message: 'Le mot de passe doit contenir au moins 12 caractères, 1 majuscule, 1 minuscule et 1 caractère spécial',
+                message: 'The password must contain at least 12 characters, 1 uppercase letter, 1 lowercase letter, and 1 special character',
                 type: 'password'
             },
             { id: 'gdpr', errorId: 'gdprError', message: 'Vous devez accepter les conditions RGPD', type: 'checkbox' }

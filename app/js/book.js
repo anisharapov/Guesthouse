@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     today.setHours(0, 0, 0, 0);
     const todayString = formatDate(today);
 
-    // Regex for password validation: at least 12 chars, 1 uppercase, 1 digit, 1 symbol
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{12,}$/;
+    // Regex for password validation: at least 12 chars, 1 uppercase, 1 lowercase, 1 symbol
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{12,}$/;
 
     // Validate form fields
     function isFormValid() {
@@ -118,6 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Generate calendar for the given month and year
     function generateCalendar(month, year) {
+        if (!calendar) {
+            alert('Error: Calendar element (#calendar) not found in the HTML.');
+            return;
+        }
         calendar.innerHTML = '';
         currentMonthElement.textContent = `${new Date(year, month).toLocaleString('en-US', { month: 'long' })} ${year}`;
 
@@ -215,8 +219,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Form input event listeners for real-time validation
+    const nameRegex = /^[A-Za-zÀ-ÿ\s'-]{2,}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\+?\d{10,15}$/;
+
     Object.values(inputs).forEach(input => {
-        input.addEventListener('input', updateButtonStates);
+        input.addEventListener('input', () => {
+            // Validate the specific field
+            if (input === inputs.firstName) {
+                document.getElementById('firstNameError').textContent = nameRegex.test(input.value.trim()) ? '' : 'Please enter your first name';
+            } else if (input === inputs.lastName) {
+                document.getElementById('lastNameError').textContent = nameRegex.test(input.value.trim()) ? '' : 'Please enter your last name';
+            } else if (input === inputs.email) {
+                document.getElementById('emailError').textContent = emailRegex.test(input.value.trim()) ? '' : 'Please enter a valid email address';
+            } else if (input === inputs.phone) {
+                document.getElementById('phoneError').textContent = phoneRegex.test(input.value.trim().replace(/\s/g, '')) ? '' : 'Please enter a valid phone number';
+            } else if (input === inputs.password) {
+                document.getElementById('passwordError').textContent = passwordRegex.test(input.value) ? '' : 'The password must contain at least 12 characters, 1 uppercase letter, 1 lowercase letter, and 1 special character';
+            } else if (input === inputs.gdpr) {
+                document.getElementById('gdprError').textContent = input.checked ? '' : 'Please accept the GDPR terms';
+            }
+            updateButtonStates();
+        });
         input.addEventListener('change', updateButtonStates);
     });
 

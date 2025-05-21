@@ -34,27 +34,31 @@ document.addEventListener('DOMContentLoaded', () => {
     today.setHours(0, 0, 0, 0);
     const todayString = formatDate(today);
 
-    // Regex for password validation: at least 12 chars, 1 uppercase, 1 digit, 1 symbol
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{12,}$/;
+    // Regex for validations
+    const nameRegex = /^[A-Za-zÀ-ÿ\s'-]{2,}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\+?\d{10,15}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{12,}$/;
 
-    // Validate form fields
+    // Validate form fields and display error messages in real-time
+    function validateField(input, errorElement, validationFn, errorMessage) {
+        const value = input.type === 'checkbox' ? input.checked : input.value.trim();
+        const isValid = input.type === 'checkbox' ? value : validationFn(value);
+        errorElement.textContent = isValid ? '' : errorMessage;
+        return isValid;
+    }
+
+    // Check if form is valid
     function isFormValid() {
-        const firstName = inputs.firstName.value.trim();
-        const lastName = inputs.lastName.value.trim();
-        const email = inputs.email.value.trim();
-        const phone = inputs.phone.value.trim();
-        const password = inputs.password.value;
-        const gdpr = inputs.gdpr.checked;
-
-        return (
-            firstName !== '' &&
-            lastName !== '' &&
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) &&
-            /^\+?\d{10,15}$/.test(phone.replace(/\s/g, '')) &&
-            passwordRegex.test(password) &&
-            gdpr &&
-            selectedDates.length === 2
-        );
+        const validations = [
+            validateField(inputs.firstName, document.getElementById('firstNameError'), value => nameRegex.test(value), 'Please enter your first name'),
+            validateField(inputs.lastName, document.getElementById('lastNameError'), value => nameRegex.test(value), 'Please enter your last name'),
+            validateField(inputs.email, document.getElementById('emailError'), value => emailRegex.test(value), 'Please enter a valid email address'),
+            validateField(inputs.phone, document.getElementById('phoneError'), value => phoneRegex.test(value.replace(/\s/g, '')), 'Please enter a valid phone number'),
+            validateField(inputs.password, document.getElementById('passwordError'), value => passwordRegex.test(value), 'The password must contain at least 12 characters, 1 uppercase letter, 1 lowercase letter, and 1 special character'),
+            validateField(inputs.gdpr, document.getElementById('gdprError'), value => value, 'Please accept the GDPR terms')
+        ];
+        return validations.every(isValid => isValid) && selectedDates.length === 2;
     }
 
     // Update Book and Add to Cart button states
@@ -184,7 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update cart count in header
     function updateCartCount() {
-        const cartCount = document.getElementById('cart-count');
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0) || 0;
         if (cartCount) {
@@ -216,7 +219,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Form input event listeners for real-time validation
     Object.values(inputs).forEach(input => {
-        input.addEventListener('input', updateButtonStates);
+        input.addEventListener('input', () => {
+            // Validate the specific field
+            if (input === inputs.firstName) {
+                validateField(input, document.getElementById('firstNameError'), value => nameRegex.test(value), 'Please enter your first name');
+            } else if (input === inputs.lastName) {
+                validateField(input, document.getElementById('lastNameError'), value => nameRegex.test(value), 'Please enter your last name');
+            } else if (input === inputs.email) {
+                validateField(input, document.getElementById('emailError'), value => emailRegex.test(value), 'Please enter a valid email address');
+            } else if (input === inputs.phone) {
+                validateField(input, document.getElementById('phoneError'), value => phoneRegex.test(value.replace(/\s/g, '')), 'Please enter a valid phone number');
+            } else if (input === inputs.password) {
+                validateField(input, document.getElementById('passwordError'), value => passwordRegex.test(value), 'The password must contain at least 12 characters, 1 uppercase letter, 1 lowercase letter, and 1 special character');
+            } else if (input === inputs.gdpr) {
+                validateField(input, document.getElementById('gdprError'), value => value, 'Please accept the GDPR terms');
+            }
+            updateButtonStates();
+        });
         input.addEventListener('change', updateButtonStates);
     });
 
@@ -225,33 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         if (!bookButton.disabled && selectedDates.length === 2) {
             // Validate fields
-            let isValid = isFormValid();
-            document.querySelectorAll('.error-message').forEach(span => span.textContent = '');
-
-            if (!inputs.firstName.value.trim()) {
-                document.getElementById('firstNameError').textContent = 'First name is required';
-                isValid = false;
-            }
-            if (!inputs.lastName.value.trim()) {
-                document.getElementById('lastNameError').textContent = 'Last name is required';
-                isValid = false;
-            }
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputs.email.value.trim())) {
-                document.getElementById('emailError').textContent = 'Valid email is required';
-                isValid = false;
-            }
-            if (!/^\+?\d{10,15}$/.test(inputs.phone.value.trim().replace(/\s/g, ''))) {
-                document.getElementById('phoneError').textContent = 'Valid phone number is required';
-                isValid = false;
-            }
-            if (!passwordRegex.test(inputs.password.value)) {
-                document.getElementById('passwordError').textContent = 'Password must be at least 12 characters, including 1 uppercase letter, 1 digit, and 1 symbol';
-                isValid = false;
-            }
-            if (!inputs.gdpr.checked) {
-                document.getElementById('gdprError').textContent = 'You must accept GDPR terms';
-                isValid = false;
-            }
+            const isValid = isFormValid();
 
             if (isValid) {
                 // Calculate reservation details
